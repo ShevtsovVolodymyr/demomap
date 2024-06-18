@@ -4,6 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
     <script src="https://code.highcharts.com/maps/highmaps.js"></script>
     <style>
       #container {
@@ -12,12 +33,45 @@
   </head>
   <body>
     <div id="container" style="width: 100%; height: 800px" background></div>
+
+    <div
+      class="modal fade bd-example-modal-lg"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="myLargeModalLabel"
+      aria-hidden="true"
+      id="myModal"
+    >
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+
+          </div>
+      </div>
+    </div>
     <script>
+      const colors = [
+        '#666',
+        '#fdb6b0',
+        '#f0766b',
+        '#ffd87f',
+        '#d1ecc0',
+        '#b6dff7',
+        '#c8c8ff',
+        '#e6e6ff',
+        '#e5e5e5',
+        'white',
+      ];
       const dataEnv = [
         {
           id: 'id1',
           name: 'path178',
-          color: 'green',
           path: 'M206,1C206,1,199,12,201,28C204,44,215,53,215,53C215,53,229,64,237,70C246,76,252,76,252,76L272,76L272,69L329,69L329,76L342,77L523,77C530,77,533,67,533,67L533,58C533,49,543,49,543,49L672,49C682,49,679,53,691,59C702,66,719,68,719,68C751,77,780,77,780,77C780,77,826,77,846,71C878,63,910,9,910,9L206,1Z',
         },
         {
@@ -2096,326 +2150,300 @@
       });
       const data = [
         {
-          type: 'map',
-          joinBy: null,
           mapData: formatted,
+          showInLegend: false,
         },
         {
-          type: 'map',
-          joinBy: null,
-          mapData: [
+          data: [
             {
-              id: 'id0',
               name: '950',
-              color: 'green',
+              value: 2024,
+              companyName: 'Company Name 1',
+              companyData: 'Info 1',
+              color: colors[0],
               path: 'M476,123L456,123L456,89L476,89L476,123Z',
             },
             {
-              id: 'id1',
               name: '390',
-              color: 'green',
+              value: 2030,
+              color: colors[1],
+              companyName: 'Company Name 2',
+              companyData: 'Info 2',
               path: 'M377,353L366,353L366,327L377,327L377,353Z',
             },
             {
-              id: 'id2',
               name: '370',
+              value: 2040,
+              color: colors[2],
+              companyName: 'Company Name 3',
+              companyData: 'Info 3',
               path: 'M401,327L396,327L396,353L406,353L406,326L401,326L401,327Z',
             },
             {
-              id: 'id3',
               name: '380',
+              value: 2050,
+              color: colors[3],
+              companyName: 'Company Name 4',
+              companyData: 'Info 4',
               path: 'M427,353L416,353L416,326L427,326L427,353Z',
             },
             {
-              id: 'id4',
-              name: 'path2656',
+              name: '320',
+              value: 2025,
+              color: colors[4],
+              companyName: 'Company Name 5',
+              companyData: 'Info 5',
               path: 'M471,353L450,353L450,327L471,327L471,353Z',
             },
             {
-              id: 'id5',
-              name: 'path2658',
+              name: '330',
+              value: 2025,
+              color: colors[5],
+              companyName: 'Company Name 6',
+              companyData: 'Info 7',
               path: 'M450,353L442,353L442,327L450,327L450,353Z',
             },
             {
-              id: 'id6',
-              name: 'path2660',
+              name: '335',
+              value: 2025,
+              color: colors[6],
+              companyName: 'Company Name 7',
+              companyData: 'Info 7',
               path: 'M442,353L437,353L437,326L442,326L442,353Z',
             },
             {
-              id: 'id7',
-              name: 'path2662',
+              name: '350',
+              value: 2025,
+              color: colors[7],
+              companyName: 'Company Name 8',
+              companyData: 'Info 8',
               path: 'M432,353L427,353L427,326L432,326L432,353Z',
             },
             {
-              id: 'id8',
-              name: 'path2688',
+              name: '160',
+              value: 2025,
+              color: colors[8],
+              companyName: 'Company Name 9',
+              companyData: 'Info 9',
               path: 'M628,179L679,115L739,161L735,168L743,174L737,181L729,175L688,227L628,179Z',
             },
             {
-              id: 'id9',
-              name: 'path2544',
+              name: '140',
+              value: 2025,
+              color: colors[7],
+              companyName: 'Company Name 10',
+              companyData: 'Info 10',
               path: 'M743,174L770,139L702,84L679,115L672,123L743,174Z',
             },
             {
-              id: 'id10',
-              name: 'path2692',
+              name: '115',
+              value: 2025,
+              color: colors[9],
+              companyName: 'Company Name 11',
+              companyData: 'Info 11',
               path: 'M738,153L758,129L791,155L771,179L738,153Z',
             },
             {
-              id: 'id11',
-              name: 'path2568',
+              name: '403',
+              value: 2025,
+              color: colors[7],
+              companyName: 'Company Name 12',
+              companyData: 'Info 12',
               path: 'M315,353L259,353L259,322L269,322L269,290L315,290L315,353Z',
             },
             {
-              id: 'id12',
-              name: 'path2552',
+              name: '410',
+              value: 2025,
+              color: colors[7],
+              companyName: 'Company Name 13',
+              companyData: 'Info 13',
               path: 'M100,342L100,324L105,324L105,304L104,304L104,300L107,300L107,295L142,295L142,296L146,296L146,295L151,295L151,290L164,290L164,295L168,295L168,296L173,296L173,296L186,296L186,297L191,297L191,296L203,296L203,297L207,297L207,304L209,304L209,324L214,324L214,342L198,342L198,348L181,348L181,353L133,353L133,347L116,347L116,342L100,342Z',
             },
             {
-              id: 'id13',
-              name: 'path2576',
+              name: '510',
+              value: 2025,
+              color: colors[7],
+              companyName: 'Company Name 14',
+              companyData: 'Info 14',
               path: 'M1,325L1,340L4,340L4,353L30,353L30,345L33,345L33,337L30,337L30,323L4,323L4,325L1,325Z',
             },
             {
-              id: 'id14',
-              name: 'path2582',
+              name: '510',
+              value: 2025,
+              color: colors[5],
+              companyName: 'Company Name 15',
+              companyData: 'Info 15',
               path: 'M67,241L96,241L96,265L67,265L67,241Z',
             },
             {
-              id: 'id15',
-              name: 'path2632',
+              name: '715',
+              value: 2025,
+              color: colors[7],
+              companyName: 'Company Name 16',
+              companyData: 'Info 16',
               path: 'M155,138L173,152L162,166L144,154L155,138Z',
             },
             {
-              id: 'id16',
-              name: 'path2596',
+              name: '750',
+              value: 2025,
+              color: colors[4],
+              companyName: 'Company Name 17',
+              companyData: 'Info 17',
               path: 'M211,109L238,103L243,125L215,131L211,109Z',
             },
             {
-              id: 'id17',
-              name: 'path2620',
+              name: '735',
+              value: 2025,
+              color: colors[8],
+              companyName: 'Company Name 18',
+              companyData: 'Info 18',
               path: 'M171,128L181,123L190,142L182,147L171,128Z',
             },
             {
-              id: 'id18',
-              name: 'path2612',
+              name: '725',
+              value: 2025,
+              color: colors[2],
+              companyName: 'Company Name 19',
+              companyData: 'Info 19',
               path: 'M183,122L191,117L202,136L193,140L183,122Z',
             },
             {
-              id: 'id19',
-              name: 'path2604',
+              name: '745',
+              value: 2025,
+              color: colors[3],
+              companyName: 'Company Name 20',
+              companyData: 'Info 20',
               path: 'M189,119L197,114L207,132L199,137L189,119Z',
             },
             {
-              id: 'id20',
-              name: 'path2636',
+              name: '810',
+              value: 2025,
+              color: colors[7],
+              companyName: 'Company Name 21',
+              companyData: 'Info 21',
               path: 'M286,90L323,90L323,118L285,118L286,90Z',
             },
             {
-              id: 'id21',
-              name: 'path2588',
+              name: '910',
+              value: 2025,
+              color: colors[7],
+              companyName: 'Company Name 22',
+              companyData: 'Info 22',
               path: 'M375,123L352,123L352,89L375,89L375,123Z',
             },
             {
-              id: 'id22',
-              name: 'path2590',
+              name: '930',
+              value: 2025,
+              color: colors[7],
+              companyName: 'Company Name 23',
+              companyData: 'Info 23',
               path: 'M416,123L393,123L393,89L416,89L416,123Z',
             },
             {
-              id: 'id23',
-              name: 'path2592',
+              name: '940',
+              value: 2025,
+              color: colors[7],
+              companyName: 'Company Name 24',
+              companyData: 'Info 24',
               path: 'M456,124L415,124L415,89L456,89L456,124Z',
             },
             {
-              id: 'id24',
-              name: 'path2584',
+              name: '960',
+              value: 2025,
+              color: colors[5],
+              companyName: 'Company Name 25',
+              companyData: 'Info 25',
               path: 'M519,122L477,122L477,89L519,89L519,122Z',
             },
             {
-              id: 'id25',
-              name: 'path2588_2',
+              name: '920',
+              value: 2025,
+              color: colors[5],
+              companyName: 'Company Name 26',
+              companyData: 'Info 26',
               path: 'M394,123L375,123L375,89L394,89L394,123Z',
             },
             {
-              id: 'id26',
-              name: 'path2572',
+              name: '401',
+              value: 2025,
+              color: colors[5],
+              companyName: 'Company Name 27',
+              companyData: 'Info 27',
               path: 'M351,353L351,345L342,345L342,290L315,290L315,353L351,353Z',
             },
             {
-              id: 'id27',
-              name: 'path2674',
+              name: '380',
+              value: 2025,
+              color: colors[5],
+              companyName: 'Company Name 28',
+              companyData: 'Info 28',
               path: 'M396,353L377,353L377,327L396,327L396,353Z',
             },
             {
-              id: 'id28',
-              name: 'path2678',
+              name: '375',
+              value: 2025,
+              color: colors[5],
+              companyName: 'Company Name 29',
+              companyData: 'Info 29',
               path: 'M416,353L406,353L406,326L416,326L416,353Z',
             },
             {
-              id: 'id29',
-              name: 'path2680',
+              name: '345',
+              value: 2025,
+              color: colors[5],
+              companyName: 'Company Name 30',
+              companyData: 'Info 30',
               path: 'M437,353L432,353L432,326L437,326L437,353Z',
             },
             {
-              id: 'id30',
-              name: 'path2560',
+              name: '405',
+              value: 2025,
+              color: colors[5],
+              companyName: 'Company Name 3',
+              companyData: 'Info 3',
               path: 'M259,322L251,322L251,290L213,290L213,353L259,353L259,322Z',
             },
             {
-              id: 'id31',
-              name: 'test',
+              name: '901/902',
+              value: 2025,
+              color: colors[5],
+              companyName: 'Company Name 3',
+              companyData: 'Info 3',
               path: 'M510.629 328.142L536.588 295.585L531.71 291.569L549.065 269.482L553.656 273.212L597.445 218.33L594.674 215.748L598.018 211.828L596.012 210.201L594.674 211.732L593.43 210.774L596.202 207.429L596.969 208.194L607.676 195.19C607.293 192.132 610.353 192.13 610.353 192.13L613.797 187.541L618.385 191.749L627.565 179.125L702.145 237.644L716.296 220.816L729.3 230.758L598.69 396.985L510.629 328.142Z',
             },
           ],
-          data: [
-            {
-              id: 'id0',
-              y: 0,
-              color: 'red',
+          cursor: 'pointer',
+          point: {
+            events: {
+              click: function () {
+                openPopup(this);
+              },
             },
-            {
-              id: 'id1',
-              y: 1,
-              color: 'red',
-            },
-            {
-              id: 'id2',
-              y: 2,
-              color: 'blue',
-            },
-            {
-              id: 'id3',
-              y: 3,
-            },
-            {
-              id: 'id4',
-              y: 4,
-            },
-            {
-              id: 'id5',
-              y: 5,
-            },
-            {
-              id: 'id6',
-              y: 6,
-            },
-            {
-              id: 'id7',
-              y: 7,
-            },
-            {
-              id: 'id8',
-              y: 8,
-            },
-            {
-              id: 'id9',
-              y: 9,
-            },
-            {
-              id: 'id10',
-              y: 10,
-            },
-            {
-              id: 'id11',
-              y: 11,
-            },
-            {
-              id: 'id12',
-              y: 12,
-            },
-            {
-              id: 'id13',
-              y: 13,
-            },
-            {
-              id: 'id14',
-              y: 14,
-            },
-            {
-              id: 'id15',
-              y: 15,
-            },
-            {
-              id: 'id16',
-              y: 16,
-            },
-            {
-              id: 'id17',
-              y: 17,
-            },
-            {
-              id: 'id18',
-              y: 18,
-            },
-            {
-              id: 'id19',
-              y: 19,
-            },
-            {
-              id: 'id20',
-              y: 20,
-            },
-            {
-              id: 'id21',
-              y: 21,
-            },
-            {
-              id: 'id22',
-              y: 22,
-            },
-            {
-              id: 'id23',
-              y: 23,
-            },
-            {
-              id: 'id24',
-              y: 24,
-            },
-            {
-              id: 'id25',
-              y: 25,
-            },
-            {
-              id: 'id26',
-              y: 26,
-            },
-            {
-              id: 'id27',
-              y: 27,
-            },
-            {
-              id: 'id28',
-              y: 28,
-            },
-            {
-              id: 'id29',
-              y: 29,
-            },
-            {
-              id: 'id30',
-              y: 30,
-            },
-            {
-              id: 'id31',
-              y: 31,
-            },
-          ],
+          },
+          name: 'Estates',
+          dataLabels: {
+            enabled: true,
+            padding: 0,
+            format: '{point.name}',
+          },
         },
       ];
-      console.log(data);
 
       Highcharts.mapChart('container', {
-        chart: {
-          backgroundColor: 'transparent',
-        },
         title: {
           text: 'Demo map',
+        },
+        tooltip: {
+          pointFormat:
+            '<b>{point.companyName}</b></b><br>' +
+            '{point.name} | {point.companyData}',
+          shared: true,
         },
         legend: {
           align: 'left',
           floating: true,
           title: {
-            text: 'Title',
+            text: 'Date',
           },
         },
         mapNavigation: {
@@ -2423,6 +2451,27 @@
         },
         series: data,
       });
+
+      $('#myModal').on('show.bs.modal', function (event) {
+        var modal = $(this);
+        modal
+          .find('.modal-title')
+          .text(
+            `Estate ${window.mycompanyId}.`
+          );
+          modal
+          .find('.modal-body')
+          .text(
+            `${window.mycompanyName} | ${window.mycompanyData}`
+          );
+      });
+      function openPopup(point) {
+        window.mycompanyName = point.companyName;
+        window.mycompanyData = point.companyData;
+        window.mycompanyId = point.name;
+
+        $('#myModal').modal('show');
+      }
     </script>
   </body>
 </html>
